@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:layout_marginTop="150dp"
+        android:id="@+id/btnOpenVideoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:onClick="btnOpenVideoPlayerClicked"
+        android:text="Sample Record Video " />
+
+    <Button
+        android:id="@+id/btnOpenAddFilter"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:onClick="btnOpenAddFilterClicked"
+        android:text="Sample Add Effect to video" />
+
+</LinearLayout>

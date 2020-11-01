@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- The main content view -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+>
+
+    <Button android:layout_width="match_parent" android:layout_height="40dp"
+            android:layout_marginTop="40dp"
+            android:id="@+id/btnFilter1"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Test Filter1"/>
+    <Button android:layout_width="match_parent" android:layout_height="40dp"
+
+            android:id="@+id/btnFilter2"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Test Filter2"/>
+    <Button android:layout_width="match_parent" android:layout_height="40dp"
+
+            android:id="@+id/btnFilter3"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Test Filter3"/>
+    <Button android:layout_width="match_parent" android:layout_height="40dp"
+
+            android:id="@+id/btnFilter4"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Defaut filter"/>
+    <Button android:layout_width="match_parent" android:layout_height="40dp"
+
+            android:id="@+id/btnCHangeSource"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Change source"/>
+    <FrameLayout android:layout_width="wrap_content"
+                 android:background="#123123"
+                 android:layout_gravity="center"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/contentView">
+
+    </FrameLayout>
+
+
+</LinearLayout>

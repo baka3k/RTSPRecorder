@@ -1,0 +1,2 @@
+include ':app',":ijkplayer-java",":videoplayer"
+rootProject.name = "RecorderIJKPlayerSample"

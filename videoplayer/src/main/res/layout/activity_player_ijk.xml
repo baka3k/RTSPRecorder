@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- The main content view -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnCaptureFrame"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:onClick="buttonCaptureOnClicked"
+        android:layout_marginTop="44dp"
+        android:text="CapturePhoto" />
+
+    <Button
+        android:id="@+id/btnRecord"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:onClick="buttonRecordOnCliked"
+        android:text="Start Record" />
+
+    <com.hi.sample.videoplayer.player.view.RtspViewer
+        android:id="@+id/video_view"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"></com.hi.sample.videoplayer.player.view.RtspViewer>
+
+</LinearLayout>

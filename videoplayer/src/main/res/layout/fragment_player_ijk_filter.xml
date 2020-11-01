@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0099cc"
+        android:orientation="vertical">
+
+    <Button
+            android:id="@+id/btnFilter1"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="40dp"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Test Filter1" />
+
+    <Button
+            android:id="@+id/btnFilter2"
+            android:layout_width="match_parent"
+
+            android:layout_height="44dp"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Test Filter2" />
+
+    <Button
+            android:id="@+id/btnFilter3"
+            android:layout_width="match_parent"
+
+            android:layout_height="44dp"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Test Filter3" />
+
+    <Button
+            android:id="@+id/btnFilter4"
+            android:layout_width="match_parent"
+
+            android:layout_height="44dp"
+            android:onClick="buttonFilterOnCliked"
+            android:text="Test Filter4" />
+
+    <Button
+            android:id="@+id/btnCHangeSource"
+            android:layout_width="match_parent"
+
+            android:layout_height="44dp"
+            android:text="Change source" />
+
+    <com.hi.sample.videoplayer.filter.FilterVideoView
+            android:id="@+id/contentView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#123123">
+
+    </com.hi.sample.videoplayer.filter.FilterVideoView>
+
+</LinearLayout>
