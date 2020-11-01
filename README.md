@@ -1,4 +1,8 @@
 # IJKPlayer Sample
+At below repository, I add Record & capture frame function to IJKPlayer
+https://github.com/baka3k/IjkPlayerRecorder
+Someone send email to me that they can not build .so file. 
+So, I created sample project for that
 
 ## Table of contents
 
