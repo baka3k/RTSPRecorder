@@ -42,7 +42,7 @@ mVideoView.stopRecord();
 
 
 Add Filter to video:
-
+(Many thanks to MasayukiSuda https://github.com/MasayukiSuda/GPUVideo-android)
 ```Java
 GlHazeFilter hazeFilter = new GlHazeFilter();
 hazeFilter.setSlope(-0.8f);
