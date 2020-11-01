@@ -24,6 +24,7 @@
 ## Usage
 Capture Video Frame
 ```Java
+// 1280 x 720 is frame size video
 Bitmap bitmap = Bitmap.createBitmap(1280, 720, Bitmap.Config.ARGB_8888);
 mVideoView.getCurrentFrame(bitmap);
 ```
