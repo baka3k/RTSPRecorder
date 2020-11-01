@@ -1,10 +1,10 @@
 # IJKPlayer Sample
-In previous time, I added Record & capture frame function to IJKPlayer
+In previous time, I added 2 functions: RecordVideo & Capture Frame Video to IJKPlayer
 (https://github.com/baka3k/IjkPlayerRecorder)
 
-Someone sent email to me that they can not build .so file. 
+Someone sent email to me that they can not build .so file, because they met issue with environment
 
-So, I created sample project(included so file) for that - Hope this help
+So, I created sample project(included .so file) - Hope this help
 
 Good luck !!!
 
