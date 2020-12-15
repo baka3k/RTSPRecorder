@@ -66,7 +66,7 @@ public class VideoActivity extends AppCompatActivity {
         if (btnRecord.getText().toString().equals("Recording")) {
             btnRecord.setText("Start Record");
             mVideoView.stopRecord();
-
+            Toast.makeText(getApplicationContext(), "" + mOutPutRecord, Toast.LENGTH_LONG).show();
         } else {
             File f = new File(mOutPutRecord);
             if (f.exists()) {
@@ -92,7 +92,6 @@ public class VideoActivity extends AppCompatActivity {
 
         }
     }
-
     public void buttonCaptureOnClicked(View view) {
         new AsyncTask<Void, Void, Boolean>() {
             @Override
@@ -117,9 +116,9 @@ public class VideoActivity extends AppCompatActivity {
             protected void onPostExecute(Boolean aVoid) {
                 super.onPostExecute(aVoid);
                 if (aVoid) {
-                    Toast.makeText(getApplicationContext(), "file save to " + mOutPutCaptureFrame, Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), "file save to " + mOutPutCaptureFrame, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "err, can not save frame" + mOutPutCaptureFrame, Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), "err, can not save frame" + mOutPutCaptureFrame, Toast.LENGTH_SHORT).show();
                 }
 
             }

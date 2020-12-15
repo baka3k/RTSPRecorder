@@ -20,7 +20,7 @@ import com.daasuu.gpuv.egl.filter.GlHazeFilter;
 import com.daasuu.gpuv.egl.filter.GlLookUpTableFilter;
 
 public class VideoPlayerFragment extends Fragment {
-    private static final String mVideoPath = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+    private static final String mVideoPath = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
     private FilterVideoView contentView;
     boolean isRTSPSource = true;
     private Button btnChangeSource;
@@ -65,7 +65,6 @@ public class VideoPlayerFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_player_ijk_filter, container, false);
-
     }
 
     private void buttonFilterOnCliked(View v) {
