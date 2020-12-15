@@ -29,6 +29,14 @@ Good luck !!!
 
 - Android 5.1+
 
+
+## Gradle
+Add the dependency
+```groovy
+dependencies {
+    implementation "com.github.baka3k:RTSPRecorder:1.0"
+}
+```
 ## Usage
 Capture Video Frame
 ```Java
