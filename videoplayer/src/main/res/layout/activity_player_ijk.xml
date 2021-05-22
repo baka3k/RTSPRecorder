@@ -8,12 +8,18 @@
     android:background="#0099cc"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/edtUrl"
+        android:layout_width="match_parent"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp" />
+
     <Button
         android:id="@+id/btnCaptureFrame"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:onClick="buttonCaptureOnClicked"
-        android:layout_marginTop="44dp"
         android:text="CapturePhoto" />
 
     <Button
@@ -28,5 +34,10 @@
         android:layout_width="400dp"
         android:layout_height="200dp"
         android:layout_gravity="center"></com.hi.sample.videoplayer.player.view.RtspViewer>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ImageView>
 
 </LinearLayout>

@@ -6,9 +6,13 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,21 +28,28 @@ import java.io.File;
 
 public class VideoActivity extends AppCompatActivity {
     private static final String TAG = "VideoActivity";
+    private static final String mVideoPath = "rtsp://wowzaec2demo.streamlock.net/vod/mp4";
 
-    private static final String mVideoPath = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+    private RtspViewer mVideoView;
+    private ImageView mImageView;
+    private TextView mTextViewUrl;
+    private Button mBtnRecord;
+
     private String mOutPutRecord;
     private String mOutPutCaptureFrame;
-    private RtspViewer mVideoView;
     private boolean mBackPressed;
-    private Button btnRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_ijk);
-        btnRecord = findViewById(R.id.btnRecord);
+        mImageView = findViewById(R.id.imageView);
+        mTextViewUrl = findViewById(R.id.edtUrl);
+        mBtnRecord = findViewById(R.id.btnRecord);
         mVideoView = findViewById(R.id.video_view);
-        if (mVideoPath != null) {
+
+        mTextViewUrl.setText(mVideoPath);
+        if (!TextUtils.isEmpty(mVideoPath)) {
             mVideoView.setVideoPath(mVideoPath);
         } else {
             Log.e(TAG, "Null Data Source\n");
@@ -63,8 +74,8 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     public void buttonRecordOnCliked(View v) {
-        if (btnRecord.getText().toString().equals("Recording")) {
-            btnRecord.setText("Start Record");
+        if (mBtnRecord.getText().toString().equals("Recording")) {
+            mBtnRecord.setText("Start Record");
             mVideoView.stopRecord();
             Toast.makeText(getApplicationContext(), "" + mOutPutRecord, Toast.LENGTH_LONG).show();
         } else {
@@ -72,7 +83,7 @@ public class VideoActivity extends AppCompatActivity {
             if (f.exists()) {
                 f.delete();
             }
-            btnRecord.setText("Recording");
+            mBtnRecord.setText("Recording");
             mVideoView.startRecord(mOutPutRecord);
         }
     }
@@ -92,36 +103,57 @@ public class VideoActivity extends AppCompatActivity {
 
         }
     }
-    public void buttonCaptureOnClicked(View view) {
-        new AsyncTask<Void, Void, Boolean>() {
-            @Override
-            protected Boolean doInBackground(Void... voids) {
-                Bitmap bitmap = Bitmap.createBitmap(1280, 720, Bitmap.Config.ARGB_8888);
-                boolean result = false;
-                mVideoView.getCurrentFrame(bitmap);
 
+    public void buttonCaptureOnClicked(View view) {
+        if (!isAllowClicked()) {
+            return;
+        }
+        if (!mVideoView.isPlaying()) {
+            Toast.makeText(getApplicationContext(), "Please waitting - you just get frame while video is playing!!!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        new AsyncTask<Void, Void, Bitmap>() {
+            @Override
+            protected Bitmap doInBackground(Void... voids) {
+                Bitmap bitmap = mVideoView.getCurrentFrame();
                 if (bitmap != null) {
                     File f = new File(mOutPutCaptureFrame);
                     if (f.exists()) {
                         f.delete();
                     }
-                    result = BitmapUtils.saveBitmap(bitmap, mOutPutCaptureFrame);
+                    BitmapUtils.saveBitmap(bitmap, mOutPutCaptureFrame); // you can try to save bitmap
                 } else {
                     Log.w("VideoActivity", "bitmap null");
                 }
-                return result;
+                return bitmap;
             }
 
             @Override
-            protected void onPostExecute(Boolean aVoid) {
-                super.onPostExecute(aVoid);
-                if (aVoid) {
-                    Toast.makeText(getApplicationContext(), "file save to " + mOutPutCaptureFrame, Toast.LENGTH_SHORT).show();
+            protected void onPostExecute(Bitmap bitmap) {
+                super.onPostExecute(bitmap);
+                if (bitmap != null) {
+                    mImageView.setImageBitmap(bitmap);
+                    Toast.makeText(getApplicationContext(), "Frame saved: " + mOutPutCaptureFrame, Toast.LENGTH_LONG).show();
                 } else {
+                    mImageView.setImageBitmap(null);
                     Toast.makeText(getApplicationContext(), "err, can not save frame" + mOutPutCaptureFrame, Toast.LENGTH_SHORT).show();
                 }
 
             }
         }.execute();
+    }
+    /*********************************************************************************************/
+    /*********************************************************************************************/
+    /*********************************************************************************************/
+    /*********************************************************************************************/
+    private long PREVIOUS_TIME_CLICKED = 0L;
+
+    private boolean isAllowClicked() {
+        long spentTime = System.currentTimeMillis() - PREVIOUS_TIME_CLICKED;
+        if (spentTime >= 300) {
+            PREVIOUS_TIME_CLICKED = System.currentTimeMillis();
+            return true;
+        }
+        return false;
     }
 }

@@ -95,4 +95,20 @@ public class RtspViewer extends IjkVideoView implements IPlayer, IRecord {
     public void getCurrentFrame(Bitmap bitmap) {
         mMediaPlayer.getCurrentFrame(bitmap);
     }
+
+    public int getVideoWidth() {
+        return mMediaPlayer.getVideoWidth();
+    }
+
+    public int getVideoHeight() {
+        return mMediaPlayer.getVideoHeight();
+    }
+
+    public Bitmap getCurrentFrame() {
+        int widthFrame = getVideoWidth(); // must be smaller or equal video frame
+        int heightFrame = getVideoHeight();  // must be smaller or equal video frame
+        Bitmap bitmap = Bitmap.createBitmap(widthFrame, heightFrame, Bitmap.Config.ARGB_8888);
+        getCurrentFrame(bitmap);
+        return bitmap;
+    }
 }
