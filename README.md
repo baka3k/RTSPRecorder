@@ -43,16 +43,15 @@ allprojects {
 Add the dependency
 ```groovy
 dependencies {
-    implementation "com.github.baka3k:RTSPRecorder:1.0"
+    implementation "com.github.baka3k:RTSPRecorder:1.0.1"
 }
 ```
 ## Usage
 Capture Video Frame
 ```Java
-// 1280 x 720 is frame size video
-Bitmap bitmap = Bitmap.createBitmap(1280, 720, Bitmap.Config.ARGB_8888);
-mVideoView.getCurrentFrame(bitmap);
+Bitmap bitmap = mVideoView.getCurrentFrame();
 ```
+
 RecordVideo
 ```Java
 mVideoView.startRecord(mOutPutRecord);
