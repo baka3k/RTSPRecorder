@@ -12,11 +12,10 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.daasuu.gpuv.egl.filter.GlFilter;
 import com.hi.sample.videoplayer.IjkMediaPlayerUtil;
 import com.hi.sample.videoplayer.player.view.IPlayer;
 import com.hi.sample.videoplayer.recorder.IRecord;
-import com.hi.sample.videoplayer.utils.BitmapUtils;
-import com.daasuu.gpuv.egl.filter.GlFilter;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -30,7 +29,7 @@ import tv.danmaku.ijk.media.player.misc.IjkTrackInfo;
 public class FilterVideoView extends RelativeLayout implements IPlayer, IRecord {
     private static final String TAG = "FilterVideoView";
     private IMediaPlayer mMediaPlayer = null;
-    private GPUPlayerView mGPUPlayerView;
+    protected GPUPlayerView mGPUPlayerView;
     private int mVideoWidth;
     private int mVideoHeight;
     private int mVideoSarNum;
@@ -62,7 +61,7 @@ public class FilterVideoView extends RelativeLayout implements IPlayer, IRecord 
                 mMediaPlayer.setSurface(surface);
             }
         } catch (Exception ex) {
-           Log.d("VideoPlay", "setSurface error: " + ex.getMessage());
+            Log.d("VideoPlay", "setSurface error: " + ex.getMessage());
         }
     };
 
@@ -87,7 +86,7 @@ public class FilterVideoView extends RelativeLayout implements IPlayer, IRecord 
                         gpuHeight = mVideoHeight;
                     }
                     if (mGPUPlayerView.getVideoWidth() != gpuWidth
-                        || mGPUPlayerView.getVideoHeight() != gpuHeight) {
+                            || mGPUPlayerView.getVideoHeight() != gpuHeight) {
                         mGPUPlayerView.setVideoSampleAspectRatio(mVideoSarNum, mVideoSarDen);
                         mGPUPlayerView.setVideoSize(gpuWidth, gpuHeight, mDegree);
                     }
@@ -117,7 +116,7 @@ public class FilterVideoView extends RelativeLayout implements IPlayer, IRecord 
                         gpuHeight = mVideoHeight;
                     }
                     if (mGPUPlayerView.getVideoWidth() != gpuWidth
-                        || mGPUPlayerView.getVideoHeight() != gpuHeight) {
+                            || mGPUPlayerView.getVideoHeight() != gpuHeight) {
                         mGPUPlayerView.setVideoSampleAspectRatio(mVideoSarNum, mVideoSarDen);
                         mGPUPlayerView.setVideoSize(gpuWidth, gpuHeight, mDegree);
                     }
@@ -376,7 +375,7 @@ public class FilterVideoView extends RelativeLayout implements IPlayer, IRecord 
                 mMediaPlayer.pause();
             }
             mTimePause = System.currentTimeMillis();
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             Log.e("MediaPlayer", "Pause fail: " + ex.getMessage());
         }
     }
@@ -454,7 +453,7 @@ public class FilterVideoView extends RelativeLayout implements IPlayer, IRecord 
         seekTo(time);
         if (!haveFiltered) {
             setFilter(new GlFilter());
-        }  else {
+        } else {
             setFilter(glFilter);
         }
     }
@@ -487,7 +486,7 @@ public class FilterVideoView extends RelativeLayout implements IPlayer, IRecord 
                 if (mTimeCurrentPosition > mDuration)
                     mTimeCurrentPosition = currentFromLib;
 
-                return (int)mTimeCurrentPosition;
+                return (int) mTimeCurrentPosition;
             }
             mTimeCurrentPosition = mMediaPlayer.getCurrentPosition();
             return (int) mTimeCurrentPosition;

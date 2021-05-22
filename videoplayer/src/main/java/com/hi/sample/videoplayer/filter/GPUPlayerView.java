@@ -1,6 +1,8 @@
 package com.hi.sample.videoplayer.filter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.opengl.GLException;
 import android.opengl.GLSurfaceView;
 import android.view.Surface;
 
@@ -9,6 +11,10 @@ import com.hi.sample.videoplayer.ijkplayer.widget.IRenderView;
 import com.hi.sample.videoplayer.ijkplayer.widget.MeasureHelper;
 import com.daasuu.gpuv.composer.FillMode;
 import com.daasuu.gpuv.egl.filter.GlFilter;
+
+import java.nio.IntBuffer;
+
+import javax.microedition.khronos.opengles.GL10;
 
 
 public class GPUPlayerView extends GLSurfaceView {
@@ -126,5 +132,4 @@ public class GPUPlayerView extends GLSurfaceView {
     public GlFilter getCurrentFilter() {
         return renderer.getCurrentFilter();
     }
-
 }

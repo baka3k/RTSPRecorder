@@ -111,4 +111,5 @@ public class RtspViewer extends IjkVideoView implements IPlayer, IRecord {
         getCurrentFrame(bitmap);
         return bitmap;
     }
+
 }

@@ -21,6 +21,7 @@ import com.daasuu.gpuv.egl.filter.GlLookUpTableFilter;
 
 public class VideoPlayerFragment extends Fragment {
     private static final String mVideoPath = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
+//    private static final String mVideoPath = "rtsp://wowzaec2demo.streamlock.net/vod/mp4";
     private FilterVideoView contentView;
     boolean isRTSPSource = true;
     private Button btnChangeSource;
@@ -88,7 +89,7 @@ public class VideoPlayerFragment extends Fragment {
             if (isRTSPSource) {
                 contentView.prepareDataSource(mVideoPath, true);
             } else {
-                contentView.prepareDataSource(mVideoPath, true);
+                contentView.prepareDataSource("rtsp://wowzaec2demo.streamlock.net/vod/mp4", true);
             }
             isRTSPSource = !isRTSPSource;
         }
