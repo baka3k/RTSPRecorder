@@ -2,21 +2,22 @@ apply plugin: 'com.android.library'
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips
     //noinspection GroovyAssignabilityCheck
-    compileSdkVersion 33
+    compileSdk 33
     //noinspection GroovyAssignabilityCheck
 
-    lintOptions {
-        abortOnError false
-    }
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdk 21
+        targetSdk 33
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    namespace 'tv.danmaku.ijk.media.player'
+    lint {
+        abortOnError false
     }
 }
 
