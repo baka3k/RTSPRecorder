@@ -44,13 +44,13 @@
             android:layout_height="44dp"
             android:text="Change source" />
 
-    <com.hi.sample.videoplayer.filter.FilterVideoView
+    <com.baka3k.stream.player.filter.FilterVideoView
             android:id="@+id/contentView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#123123">
 
-    </com.hi.sample.videoplayer.filter.FilterVideoView>
+    </com.baka3k.stream.player.filter.FilterVideoView>
 
 </LinearLayout>

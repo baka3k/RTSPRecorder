@@ -29,11 +29,11 @@
         android:onClick="buttonRecordOnCliked"
         android:text="Start Record" />
 
-    <com.hi.sample.videoplayer.player.view.RtspViewer
+    <com.baka3k.stream.player.player.view.RtspViewer
         android:id="@+id/video_view"
         android:layout_width="400dp"
         android:layout_height="200dp"
-        android:layout_gravity="center"></com.hi.sample.videoplayer.player.view.RtspViewer>
+        android:layout_gravity="center"></com.baka3k.stream.player.player.view.RtspViewer>
 
     <ImageView
         android:id="@+id/imageView"

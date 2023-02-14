@@ -22,7 +22,7 @@
             android:name="com.hi.sample.videoplayer.sample.VideoActivity"
             android:exported="false"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.baka3k.recorderijkplayersample.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
