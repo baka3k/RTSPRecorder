@@ -10,9 +10,9 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 
+import com.baka3k.stream.player.sample.VideoActivity;
+import com.baka3k.stream.player.sample.VideoFilterActivity;
 import com.hi.recorderijkplayersample.R;
-import com.hi.sample.videoplayer.sample.VideoActivity;
-import com.hi.sample.videoplayer.sample.VideoFilterActivity;
 
 public class MainActivity extends AppCompatActivity {
 

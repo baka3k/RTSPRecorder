@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,13 +14,13 @@
         android:theme="@style/Theme.RecorderIJKPlayerSample"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.hi.sample.videoplayer.sample.VideoFilterActivity"
+            android:name="com.baka3k.stream.player.sample.VideoFilterActivity"
             android:exported="false">
 
         </activity>
         <activity
-            android:name="com.hi.sample.videoplayer.sample.VideoActivity"
-            android:exported="false"></activity>
+            android:name="com.baka3k.stream.player.sample.VideoActivity"
+            android:exported="false" />
         <activity
             android:name="com.baka3k.recorderijkplayersample.MainActivity"
             android:exported="true">
